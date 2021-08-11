@@ -1,0 +1,31 @@
+// Type your program in here!
+
+
+"Hello, world!";
+
+3 * (8 + 2);
+
+3 + 2;
+
+const lol = "beepboop";
+ lol;                           
+ 
+ 5 * math_PI;
+ 
+ function cube(x) 
+ { return x * x * x; }
+ 
+ cube(2);
+ 
+ cube(cube(3));
+ 
+ function adult (x) {
+return x >= 18;
+}
+
+display(6*2);
+
+
+adult(15);
+
+
