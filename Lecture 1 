@@ -29,3 +29,38 @@ display(6*2);
 adult(15);
 
 
+const two = 3;
+const seven = 4;
+const three = 7;
+(two * three) + seven;
+
+function abs(x) {
+return x >= 0 ? x : -x;
+}
+
+abs(-3);
+
+function peepoo(x) {
+    return x > 0 ? "peepoo" : "poopee" ;
+}
+/// first expression before : is if it's true, after is fale 
+peepoo(-5);
+
+const x = -3;
+
+false ? 1 + 1: 17;
+
+x > 0 ? x : -x;
+
+x === 0 ? 1 : 2;
+
+false  ? 2 : x < 1 ? 4711 : 42;
+
+function square(x) {
+return x * x;
+}
+square(5);
+
+x>=0 ? (x > 0 ? x : 0) : -x;
+
+//x > 0 ? x : 0 is the consequent
