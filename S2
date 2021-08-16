@@ -1,0 +1,49 @@
+// S2: Source Academy Burger Joint
+
+enhui
+function biggie_size(n) {
+    return n+4;
+}
+
+wesley
+
+function unbiggie_size(n) {
+    return n-4;
+}
+
+yuxin
+function is_biggie_size(x) {
+    return x > 4;
+}
+
+
+felicia
+function combo_price(x){
+    return is_biggie_size(x) ? unbiggie_size(x) * 1.17 + 0.50 :  x * 1.17;
+}
+
+clare
+function empty_order() {
+    return 0;
+}
+
+norman
+function add_to_order(order,combo) {
+    return order * 10 + combo;
+}
+
+ivan
+function last_combo(order) {
+    return order % 10;
+}
+
+
+wei guan
+function other_combos(order) {
+    
+    return(order - (order%10)) /10);
+    
+    return math_floor(order / 10);
+}
+
+
