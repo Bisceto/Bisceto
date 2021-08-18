@@ -1,0 +1,21 @@
+function factorial(n) {
+return n === 1 
+? 1 : 
+n * factorial(n - 1);
+
+}
+
+factorial(6);
+
+
+function factorial(n) {
+    return iter(1, 1, n);
+}
+
+function iter(product,counter,n) {
+    return counter > n ?
+    product : iter(product * counter, counter + 1, n);
+}
+
+factorial(3);
+
