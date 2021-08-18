@@ -1,0 +1,20 @@
+function factorial(n) {
+  return iter(1, 1, n);
+}
+
+function iter(product, counter, n) {
+  return counter > n
+         ? product
+         : iter(counter * product,
+                counter + 1,
+                n);
+}
+
+factorial(5);
+
+//counter is number count, increasing by 1 everytime
+
+//doing abit of work every time of recursive calls
+
+//test of counter > n to give result, eventually we want to stop when counter = n
+
