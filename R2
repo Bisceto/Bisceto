@@ -29,8 +29,16 @@ factorial(5)
 5 * (4 * 6)
 5 * 24
 120
+Textbook: 10 steps
+Stepper: 50 steps
 
-Problem 4
+if double input, factorial(10);
+Textbook: ~20 steps
+Stepper: 100 steps
+
+Linear relationship n * k, where k is positive number 
+
+//Problem 4
 factorial(5) would take 4 deferred functions
 (5 * 4 * 3 * 2 * 1)
 
@@ -53,8 +61,18 @@ iter(6, 4, 5)
 iter(24, 5, 5)
 iter(120, 6, 5)
 
+5! 64 steps
+10! 114 steps
+20! 214 steps
+
+linear relation n * k + c
+
+
 //Problem 6
 0 deferred operations
+
+0 space, only 3 state variables, throughout. CONSTANT SPACE
+
 
 //Problem 7 
 function fib(n) {
