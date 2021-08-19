@@ -80,7 +80,7 @@ return n <= 1
 ? n
 : fib(n - 1) + fib(n - 2);
 }
-Recursive function, due to deferred process of fib(n-1)
+Recursive function, due to deferred process of fib(n-2). evaluate fib(n-1) first. 
 
 //Problem 8
 function fib(n) {
@@ -102,6 +102,7 @@ fib_iter(8, 5, 0)
 
 //Problem 9
 0 deferred operations
-
+0 space, 3 variables kept track, 
+constant space
 
 
