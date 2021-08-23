@@ -1,0 +1,32 @@
+import {square, heart,stack_frac, stackn, beside_frac, ribbon, show, stack, beside, blank, circle} from "rune";
+
+function moony_1 (bottom_right) {
+
+return beside(stack(circle, square),
+              stack(blank, bottom_right ));
+}
+
+show(moony_1(ribbon));
+
+
+function moony_2 (n) {
+
+return n === 1
+        ? circle
+        : moony_1(moony_2(n-1));
+}
+
+show(moony_2(5));
+
+function moony(n) {
+    return n ===1
+           ? circle
+           : beside_frac( 1 / n, 
+                          stack_frac(1/n, circle, square),
+                          stack_frac(1/n, blank, moony(n-1)));
+}
+
+show(moony(5));
+
+/* T(n) = T(n-1) + O(1) (constant)
+O(n), recursive process 
