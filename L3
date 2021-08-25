@@ -1,0 +1,35 @@
+
+// if n = 2,
+// can hop,hop or skip
+
+// if n = 3,
+// hop hop hop,
+// skip hop,
+// hop skip,
+// jump
+
+// if n = 4,
+// hop hop hop hop,
+// skip hop hop,
+// hop skip hop,
+// hop hop skip,
+// skip, skip
+// jump hop,
+// hop jump,
+
+// hop : n - 1 remaining
+// skip : n - 2 stairs reamining
+// jump : n - 3 stairs remaining 
+
+function rick_the_rabbit (n) {
+return n < 0
+? 0
+: n === 0
+? 1
+: rick_the_rabbit (n - 1) // Rick hops
++
+rick_the_rabbit (n - 2) // Rick skips
++
+rick_the_rabbit (n - 3); // Rick jumps
+}
+rick_the_rabbit(3);
