@@ -20,7 +20,7 @@
 // hop : n - 1 remaining
 // skip : n - 2 stairs reamining
 // jump : n - 3 stairs remaining 
-
+/*
 function rick_the_rabbit (n) {
 return n < 0
 ? 0
@@ -33,3 +33,97 @@ rick_the_rabbit (n - 2) // Rick skips
 rick_the_rabbit (n - 3); // Rick jumps
 }
 rick_the_rabbit(3);
+*/
+
+//play with examples! (find out our base cases) / edge cases
+// No. of way to change 120 cents (Idea: 100 or not 100)
+
+// function first_denomination ( kinds_of_coins ) {
+// return kinds_of_coins === 1 ? 5 :
+// kinds_of_coins === 2 ? 10 :
+// kinds_of_coins === 3 ? 20 :
+// kinds_of_coins === 4 ? 50 :
+// kinds_of_coins === 5 ? 100 : 0;
+// }
+
+// function cc(amount , kinds_of_coins ) {
+// return amount === 0
+// ? /* base cases */
+// : cc( amount -
+// first_denomination ( kinds_of_coins ),
+// kinds_of_coins )
+// +
+// cc(amount , kinds_of_coins - 1);
+// }
+
+// cc(120);
+
+// function f(g, x) {
+// return g(x);
+// }
+// function g(y) {
+// return y + 1;
+// }
+// f(g, 7);
+
+// //lambda expressions (paramerers) => expression
+// expression evalutes to function value. expression evaluates to function value.
+// Function has given parameters and return expression ; as body. 
+
+// function make_adder (x) {
+// return y => x + y;
+// }
+// const adder_four = make_adder (4);
+// adder_four (6);
+
+// function h(x, y) {
+//     return x * y;
+// }
+// //same as 
+// const f = (x,y) => x * y;
+
+// // you can give another name to it
+
+// const g = f;
+
+// g(2,3);
+
+function sum(term , a, next , b) {
+return a > b ? 0
+: term (a)
++
+sum(term , next (a), next , b);
+}
+
+function identity (x) {
+return x;
+}
+function plus_one (x) {
+return x + 1;
+}
+function sum_integers (a, b) {
+return sum ( identity , a, plus_one , b);
+}
+
+sum_integers(1,4);
+
+const z = 1;
+function f(g) {
+const z = 3;
+return g(z);
+}
+f(y => y + z);
+
+function inc(n) {
+return n + 1;
+}
+
+function cube(n){
+    return n * n * n;
+}
+function sum_cubes(a, b) {
+return sum(cube, a, inc, b);
+}
+
+sum_cubes(1, 10);
+
