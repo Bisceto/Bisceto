@@ -1,0 +1,33 @@
+
+// function reverse(lst) {
+// return is_null(lst)
+// ? null
+// : reverse(pair(tail(lst), head(lst)));
+// }
+// display_list(reverse(list(1, 2, 3, 4)));
+
+// function reverse(lst) {
+//     return reverse_iter(lst, null);
+// }
+
+// function reverse_iter(list, reversed_list) {
+//     return is_null(list)
+//           ? reversed_list
+//           : reverse_iter(tail(list), pair(head(list), reversed_list));
+// }
+
+
+//Q1
+function every_second(list) {
+    return every_second_iter(list, 1);
+        
+}
+  
+function every_second_iter(list, n) {
+    return n >= length(list)
+           ? null
+           : pair(list_ref(list,n), every_second_iter(list, n + 2));
+}
+
+display_list(every_second(list(1, 2, 3, 4, 5, 6)));
+
