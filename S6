@@ -1,0 +1,11 @@
+function my_map (f, xs) {
+    function accumulate(f, initial, xs) {
+        return is_null(xs)
+               ? initial
+               : pair(f(head(xs)), accumulate(f, initial, tail(xs)));
+    }
+    return accumulate(f, 0, xs);
+    
+}
+
+my_map(x => x + 1, list(1, 2, 3));
