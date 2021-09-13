@@ -1,13 +1,13 @@
 import {adsr, bell, cello, consecutively, get_duration, get_wave, init_record, is_sound, letter_name_to_frequency, letter_name_to_midi_note, make_sound, midi_note_to_frequency, noise_sound, phase_mod, piano, play, play_concurrently, record, record_for, sawtooth_sound, silence_sound, simultaneously, sine_sound, square_sound, stacking_adsr, stop, triangle_sound, trombone, violin} from "sound";
 
-const melody = list(bell(62,0.125),bell(62,0.125),bell(74,0.25),bell(69,0.375),bell(68,0.25),
-                         bell(67,0.25),bell(65,0.25),bell(62,0.125),bell(65,0.125),bell(67,0.125),
-                         bell(60,0.125),bell(60,0.125),bell(74,0.25),bell(69,0.375),bell(68,0.25),
-                         bell(67,0.25),bell(65,0.25),bell(62,0.125),bell(65,0.125),bell(67,0.125),
-                         bell(59,0.125),bell(59,0.125),bell(74,0.25),bell(69,0.375),bell(68,0.25),
-                         bell(67,0.25),bell(65,0.25),bell(62,0.125),bell(65,0.125),bell(67,0.125),
-                         bell(58,0.125),bell(58,0.125),bell(74,0.25),bell(69,0.375),bell(68,0.25),
-                         bell(67,0.25),bell(65,0.25),bell(62,0.125),bell(65,0.125),bell(67,0.125));
+const melody = list(violin(62,0.125),violin(62,0.125),violin(74,0.25),violin(69,0.375),violin(68,0.25),
+                         violin(67,0.25),violin(65,0.25),violin(62,0.125),violin(65,0.125),violin(67,0.125),
+                         violin(60,0.125),violin(60,0.125),violin(74,0.25),violin(69,0.375),violin(68,0.25),
+                         violin(67,0.25),violin(65,0.25),violin(62,0.125),violin(65,0.125),violin(67,0.125),
+                         violin(59,0.125),violin(59,0.125),violin(74,0.25),violin(69,0.375),violin(68,0.25),
+                         violin(67,0.25),violin(65,0.25),violin(62,0.125),violin(65,0.125),violin(67,0.125),
+                         violin(58,0.125),violin(58,0.125),violin(74,0.25),violin(69,0.375),violin(68,0.25),
+                         violin(67,0.25),violin(65,0.25),violin(62,0.125),violin(65,0.125),violin(67,0.125));
 
 const base = list(piano(50,0.25),piano(50,0.25),piano(50,0.125),piano(50,0.125),piano(50,0.375),
                   piano(50,0.25),piano(50,0.25),piano(50,0.125),piano(50,0.25),
@@ -20,4 +20,27 @@ const base = list(piano(50,0.25),piano(50,0.25),piano(50,0.125),piano(50,0.125),
                   
 const megalovania = simultaneously(list(consecutively(base), consecutively(melody)));
 
-play(consecutively(list(megalovania,megalovania)));
+// play(consecutively(list(megalovania,megalovania,megalovania)));
+
+const zankoku = list(piano(60,0.5), piano(63,0.5), piano(65,0.375), piano(63,0.375), piano(65,0.25),
+                     piano(65,0.25), piano(65,0.25), piano(70,0.25), piano(68,0.25), piano(67,0.125),
+                     piano(65,0.25), piano(67,0.55),
+                     
+                     piano(67,0.5), piano(70,0.5), piano(72,0.375), piano(65,0.375), piano(63,0.25),
+                     piano(62,0.25), piano(62,0.25), piano(60,0.25), piano(62,0.25),
+                     piano(65,0.125), piano(63,0.25), piano(63,0.25),  piano(65,0.125),
+                     piano(67,0.125), piano(70,0.125), piano(72,0.5),
+                     
+                     piano(63,0.5), piano(65,0.375), piano(63,0.375), piano(65,0.25),
+                     piano(65,0.25), piano(65,0.25), piano(70,0.25), piano(68,0.25), piano(67,0.125),
+                     piano(65,0.25), piano(67,0.55), piano(67,0.5), piano(70,0.5), piano(72,0.375),
+                     piano(65,0.375),piano(63,0.25), piano(70,0.25), piano(70,0.25), piano(67,0.25),
+                     piano(70,0.25), piano(70,0.375), piano(72,0.55),
+                     
+                     piano(60,0.5), piano(63,0.5), piano(65,0.375), piano(63,0.375), piano(65,0.25),
+                     piano(65,0.25), piano(65,0.25), piano(70,0.25), piano(68,0.25), piano(67,0.125),
+                     piano(65,0.25), piano(67,0.55), piano(67,0.5), piano(70,0.5), piano(72,0.375),
+                     piano(65,0.375),piano(63,0.25), piano(70,0.25), piano(70,0.25), piano(67,0.25),
+                     piano(70,0.25), piano(70,0.375), piano(72,0.5));
+
+play(consecutively(zankoku));
