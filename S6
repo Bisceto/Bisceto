@@ -1,11 +1,58 @@
-function my_map (f, xs) {
-    function accumulate(f, initial, xs) {
-        return is_null(xs)
-               ? initial
-               : pair(f(head(xs)), accumulate(f, initial, tail(xs)));
-    }
-    return accumulate(f, 0, xs);
+// //Q1
+// function my_map (f, xs) {
+//     function accumulate(f, initial, xs) {
+//         return is_null(xs)
+//               ? initial
+//               : pair(f(head(xs)), accumulate(f, initial, tail(xs)));
+//     }
+//     return accumulate(f, null, xs);
     
+// }
+
+// my_map(x => x + 1, list(1, 2, 3));
+
+
+// //Q2
+// function remove_duplicates(list) {
+//     return is_null(list)
+//           ? null
+//         //   : pair(head(list), remove_duplicates(remove_all(head(list),tail(list))));
+//           : pair(head(list), remove_duplicates(filter(x => x!== head(list), tail(list))));
+           
+//         //   x !== head(list)
+//         //   ? pair(head(list), remove_duplicates(tail(list)))
+//         //   : pair(head(list, remove(x, list)));
+        
+//     }
+
+// remove_duplicates(list(1, 2, 3, 4, 4, 3, 2, 1, 2));
+
+//Q3
+function makeup_amount(x, coins) {
+    if (x === 0) {
+        return list(null);
+    } else if (x < 0 || is_null(coins)) {
+        return null;
+    } else {
+        // Combinations that do not use the head coin.
+        const combi_A = makeup_amount(x, tail(coins));
+
+        // Combinations that do not use the head coin 
+        // for the remaining amount.
+        const combi_B = makeup_amount(x - head(coins), tail(coins));
+
+        // Combinations that use the head coin.
+        const combi_C = map(x => pair(head(coins), x), combi_B);
+        //function to apply to all of combi B to know that head coin has been used 
+        //got to do with combi B
+
+        return append(combi_A, combi_C);
+    }
 }
 
-my_map(x => x + 1, list(1, 2, 3));
+display_list(makeup_amount(22, list(1, 10, 5, 20, 1, 5, 1, 50)));
+// Result: list(list(20, 1, 1), list(10, 5, 1, 5, 1), list(1, 20, 1),
+//              list(1, 20, 1), list(1, 10, 5, 5, 1), 
+//              list(1, 10, 5, 1, 5))
+
+
