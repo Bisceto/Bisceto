@@ -1,0 +1,91 @@
+// function get_elem(M, r, c) {
+//     const row = list_ref(M, r);
+//     return list_ref(row, c);
+
+// }
+// const A = list( list(1, 2, 3), list(4, 5, 6), list(7, 8, 9) );
+// get_elem(A, 0, 2);
+
+// function horizontal_flip(M) {
+//     return map( x => reverse(x), M);
+// // }
+
+// const B = list( list(1,2,3,4), list(5,6,7,8), list(9,10,11,12) );
+// // display_list(horizontal_flip(B));
+
+// // function row_sums(M){
+// //     return map( row => accumulate((current, prev) => current + prev, 0, row), M);
+// // }
+
+// // row_sums(B);
+// function get_elem(M, r, c) {
+// return list_ref(list_ref(M, r), c);
+// }
+// function transpose(M){
+//     const nR = length(M); // number of rows
+// const nC = length(head(M)); // number of columns
+
+// // return map( c => map(row => list_ref(row, c), M) ,
+// // enum_list(0, nC - 1) );
+
+// return map(new_row => map(new_column => get_elem(M,new_column,new_row), enum_list(0,nR - 1)), enum_list(0,nC-1));
+// }
+
+// transpose(B);
+
+function has(t,x) {
+    return is_number(t)
+          ? t === x
+          : has(head(t),x) || has(tail(t), x);
+}
+// const t1 = 8;
+// // has(t1, 4); // returns false
+// has(t1, 8); // returns true
+
+// const t2 = pair(pair(1, 2), pair(3, pair(4, 5)));
+// has(t2, 4); // returns true
+// has(t2, 8); // returns false
+
+// function apply(p,t){
+//     return is_null(p) || is_number(t)
+//           ? t
+//           : apply(tail(p), head(p)(t));
+// }
+// const t3 = pair(pair(1, 2), pair(3, pair(4, 5)));
+// // apply( list(tail, tail, head), t3 ); // returns 4
+
+// apply( list(head), t3 ); // returns pair(1, 2)
+
+// function find_8(t){ //tree as argument, returns path to number 8 
+//     return is_number(t) 
+//           ? null 
+//           : has(head(t),8)
+//           ? pair("head", find_8(head(t)))
+//           : pair("tail", find_8(tail(t)));
+// }
+
+// const t1 = 8;
+// find_8(t1); // returns null
+// const t4 = pair(pair(1, 2), pair(8, pair(8, 5)));
+// find_8(t4); // returns list(tail, tail, head)
+
+
+
+function find_all_8(t) {
+return is_number(t)
+? (t === 8 ? list(null) : null)
+: has(t,8)
+? append( map(x => pair(head, x), find_all_8(head(t))),
+          map(x => pair(tail, x), find_all_8(tail(t))) )
+: null;
+}
+const t3 = pair(8, pair(8, pair(8, 2)));
+find_all_8(t3);
+// returns list( list(head), list(tail, head), list(tail, tail, head) )
+
+
+
+
+
+
+
