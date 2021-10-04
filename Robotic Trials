@@ -1,0 +1,67 @@
+// Type your program in here!
+
+//Q1
+//ev3_speak("Hello World");
+
+const motorA = ev3_motorA();
+const motorB = ev3_motorB();
+
+function initialise() {
+    ev3_motorSetStopAction(motorA,"brake");
+    ev3_motorSetStopAction(motorB,"brake");
+    
+    ev3_motorSetSpeed(motorA, 100);
+    ev3_motorSetSpeed(motorB, 100);
+}
+
+//Q2
+function move(distance) {
+    initialise();
+    
+    ev3_motorStart(motorA);
+    ev3_motorStart(motorB);
+    
+    ev3_pause(200 * distance); //Runtime of robot 
+    
+    ev3_motorStop(motorA);
+    ev3_motorStop(motorB);
+}
+
+move(5);
+
+// Q3
+//direction -1 = anti-clockwise, 1 = clockwise
+function rotate(direction, angle) {
+    initialise();
+    const degree = 2000/45;
+    if (direction === -1) {
+        ev3_motorStart(motorA);
+        ev3_pause(degree * angle);
+        ev3_motorStop(motorA);
+    } else {
+        ev3_motorStart(motorB);
+        ev3_pause(degree * angle);
+        ev3_motorStop(motorB);
+    }
+}
+// rotate(1, 360);
+
+
+//Q4
+
+// move(10);
+// rotate(-1,90);
+// move(5);
+// rotate(1,90);
+// move(15);
+
+//M2 Q1
+const sensorA = ev3_ultrasonicSensor();
+
+// while (true) {
+//     display(ev3_ultrasonicSensorDistance(sensorA)/10);
+//     ev3_pause(1000);
+// }
+
+//M2 Q2 
+
