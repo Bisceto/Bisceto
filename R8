@@ -1,0 +1,37 @@
+function make_withdraw(balance,password) {
+    
+    let wrong_tries = 0;
+
+    function withdraw(amount, pw) {
+        if (wrong_tries < 3) {
+            if (password === pw) {
+                wrong_tries = 0;
+                if (balance >= amount) {
+                    balance = balance - amount;
+                    return balance;
+                } else {
+                    return "Insufficient funds";
+                }
+            } else {
+                wrong_tries = wrong_tries + 1;
+                return "Wrong password; no withdraw";
+                }
+    } else {
+            return "Account disabled";
+        }
+    }
+     return withdraw;
+}
+
+// const W1 = make_withdraw(100);
+// W1(40);
+// W1(40);
+// W1(40);
+const acc = make_withdraw(100, "my_password");
+// acc(30, "his_passcode"); // returns "Wrong password; no withdraw"
+acc(30, "my_password"); // returns 70
+acc(10, "sesame"); // returns "Wrong password; no withdraw"
+acc(15, "canola"); // returns "Wrong password; no withdraw"
+acc(25, "olive"); // returns "Wrong password; no withdraw"
+acc(30, "my_password"); // returns "Account disabled"
+acc(30, "his_passcode"); // returns "Account disabled"
