@@ -1,0 +1,21 @@
+// Type your program in here!
+
+function d_filter(pred, xs) {
+    if (is_null(xs)) {
+        return null;
+    }
+    else {
+        if (pred(head(xs))) { 
+        return d_filter(pred, tail(xs));
+        }
+        else {
+            set_head(xs, 0);
+            return d_filter(pred,tail(xs));
+        }
+   }
+}
+
+const M = list(1, 4, 6, 8, 17);
+const L = list(1, 2, 3, 4, 5, 6, 7, 8, 9, 11);
+d_filter(x => x % 2 === 0, L);
+display_list(L);
