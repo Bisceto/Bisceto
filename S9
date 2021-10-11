@@ -4,46 +4,44 @@ function d_filter(pred, xs) {
     if (is_null(xs)) {
         return null;
     }
-    else {
-        if (pred(head(xs))) { 
-        return d_filter(pred, tail(xs));
+    else if (pred(head(xs))) { 
+            set_tail(xs, d_filter(pred,tail(xs)));
+        
+        }else {
+            xs = d_filter(pred,tail(xs));
         }
-        else {
-            set_head(xs, 0);
-            return d_filter(pred,tail(xs));
-        }
-   }
+    return xs;    
 }
-const J = list(1,2,3);
-const M = list(1, 4, 6, 8, 17);
+
+
 const L = list(1, 2, 3, 4, 5, 6, 7, 8, 9, 11);
-d_filter(x => x % 2 === 0, J);
-display_list(J);
+display(d_filter(x => x % 2 === 0, L));
+L;
 
 //in-class studio
-let counted = list();
+// let counted = list();
 
-function count_pairs(x) {
+// function count_pairs(x) {
     
-    if (!is_pair(x)) {
-       return 0;
-    } else{
-        if (is_null(member(x,counted))) {
-            counted = pair(x, counted);
-            return 1 + count_pairs(head(x)) + count_pairs(tail(x));
+//     if (!is_pair(x)) {
+//       return 0;
+//     } else{
+//         if (is_null(member(x,counted))) {
+//             counted = pair(x, counted);
+//             return 1 + count_pairs(head(x)) + count_pairs(tail(x));
             
-        } else {
-            return 0;
-        }
+//         } else {
+//             return 0;
+//         }
         
-    }
-}
+//     }
+// }
 
-const xs = pair(2, null);
-const ys = pair(pair(1, xs),xs);
-// const L = list(1,2,3);
+// const xs = pair(2, null);
+// const ys = pair(pair(1, xs),xs);
+// // const L = list(1,2,3);
 
-// const xs = pair(1,null);
-// const ys = pair(xs, xs);
-// const zs = pair(ys, ys);
-count_pairs(ys);
+// // const xs = pair(1,null);
+// // const ys = pair(xs, xs);
+// // const zs = pair(ys, ys);
+// count_pairs(ys);
