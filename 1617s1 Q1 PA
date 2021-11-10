@@ -49,11 +49,8 @@ function oxoguanine_repair(xs) {
     let repair = head(xs);
     if (repair === "8") {
         repair = "G";
-        return pair(repair, oxoguanine_repair(tail(xs)));
-    } else {
-        return pair(repair, oxoguanine_repair(tail(xs)));
     }
-
+        return pair(repair, oxoguanine_repair(tail(xs)));
     // WRITE HERE.
 
 }
